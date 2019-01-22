@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		8205783B21F7978000C06589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205783A21F7978000C06589 /* AppDelegate.swift */; };
-		8205783D21F7978000C06589 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205783C21F7978000C06589 /* ViewController.swift */; };
-		8205784021F7978000C06589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205783E21F7978000C06589 /* Main.storyboard */; };
+		8205783D21F7978000C06589 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205783C21F7978000C06589 /* HomeVC.swift */; };
 		8205784221F7978400C06589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205784121F7978400C06589 /* Assets.xcassets */; };
 		8205784521F7978400C06589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205784321F7978400C06589 /* LaunchScreen.storyboard */; };
+		8205785221F7A84800C06589 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785121F7A84800C06589 /* Constants.swift */; };
+		8205785421F7A86400C06589 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785321F7A86400C06589 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8205783721F7978000C06589 /* Kindle-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kindle-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8205783A21F7978000C06589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8205783C21F7978000C06589 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8205783F21F7978000C06589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8205783C21F7978000C06589 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8205784121F7978400C06589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205784421F7978400C06589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8205784621F7978400C06589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8205785121F7A84800C06589 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8205785321F7A86400C06589 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,63 @@
 		8205783921F7978000C06589 /* Kindle-Clone */ = {
 			isa = PBXGroup;
 			children = (
-				8205783A21F7978000C06589 /* AppDelegate.swift */,
-				8205783C21F7978000C06589 /* ViewController.swift */,
-				8205783E21F7978000C06589 /* Main.storyboard */,
+				8205785521F7A87700C06589 /* SupportFiles */,
+				8205785021F7A83400C06589 /* Utilities */,
+				8205784F21F7A82200C06589 /* Service */,
+				8205784E21F7A81300C06589 /* Controller */,
+				8205784D21F7A80C00C06589 /* View */,
+				8205784C21F7A7F400C06589 /* Model */,
 				8205784121F7978400C06589 /* Assets.xcassets */,
-				8205784321F7978400C06589 /* LaunchScreen.storyboard */,
 				8205784621F7978400C06589 /* Info.plist */,
 			);
 			path = "Kindle-Clone";
+			sourceTree = "<group>";
+		};
+		8205784C21F7A7F400C06589 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8205784D21F7A80C00C06589 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8205784E21F7A81300C06589 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8205783C21F7978000C06589 /* HomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8205784F21F7A82200C06589 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8205785321F7A86400C06589 /* DataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8205785021F7A83400C06589 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8205785121F7A84800C06589 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8205785521F7A87700C06589 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8205783A21F7978000C06589 /* AppDelegate.swift */,
+				8205784321F7978400C06589 /* LaunchScreen.storyboard */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +175,6 @@
 			files = (
 				8205784521F7978400C06589 /* LaunchScreen.storyboard in Resources */,
 				8205784221F7978400C06589 /* Assets.xcassets in Resources */,
-				8205784021F7978000C06589 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8205783D21F7978000C06589 /* ViewController.swift in Sources */,
+				8205783D21F7978000C06589 /* HomeVC.swift in Sources */,
 				8205783B21F7978000C06589 /* AppDelegate.swift in Sources */,
+				8205785221F7A84800C06589 /* Constants.swift in Sources */,
+				8205785421F7A86400C06589 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8205783E21F7978000C06589 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8205783F21F7978000C06589 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8205784321F7978400C06589 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -285,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 358N9E4597;
 				INFOPLIST_FILE = "Kindle-Clone/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 358N9E4597;
 				INFOPLIST_FILE = "Kindle-Clone/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

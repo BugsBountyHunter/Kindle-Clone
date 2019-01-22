@@ -12,6 +12,7 @@ class HomeVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataService.instanc.getData()
         //tabelview
         tableView.register(BookCell.self, forCellReuseIdentifier: BOOKS_CELL)
         tableView.backgroundColor = .green
@@ -40,11 +41,12 @@ class HomeVC: UITableViewController {
     }
     //table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return DataService.instanc.books.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BOOKS_CELL, for: indexPath) as? BookCell else {  fatalError()}
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BOOKS_CELL, for: indexPath) as? BookCell else {fatalError()}
+        let item = DataService.instanc.books[indexPath.row]
+        cell.setupCell(book: item)
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

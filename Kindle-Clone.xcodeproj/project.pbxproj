@@ -14,6 +14,8 @@
 		8205785221F7A84800C06589 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785121F7A84800C06589 /* Constants.swift */; };
 		8205785421F7A86400C06589 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785321F7A86400C06589 /* DataService.swift */; };
 		8205785721F7ADE000C06589 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785621F7ADE000C06589 /* BookCell.swift */; };
+		8205785921F7BE7900C06589 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785821F7BE7900C06589 /* Book.swift */; };
+		8205785B21F7BF6200C06589 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205785A21F7BF6200C06589 /* Page.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8205785121F7A84800C06589 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8205785321F7A86400C06589 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8205785621F7ADE000C06589 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		8205785821F7BE7900C06589 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		8205785A21F7BF6200C06589 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		8205784C21F7A7F400C06589 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8205785821F7BE7900C06589 /* Book.swift */,
+				8205785A21F7BF6200C06589 /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,7 +196,9 @@
 			files = (
 				8205783D21F7978000C06589 /* HomeVC.swift in Sources */,
 				8205783B21F7978000C06589 /* AppDelegate.swift in Sources */,
+				8205785921F7BE7900C06589 /* Book.swift in Sources */,
 				8205785221F7A84800C06589 /* Constants.swift in Sources */,
+				8205785B21F7BF6200C06589 /* Page.swift in Sources */,
 				8205785421F7A86400C06589 /* DataService.swift in Sources */,
 				8205785721F7ADE000C06589 /* BookCell.swift in Sources */,
 			);

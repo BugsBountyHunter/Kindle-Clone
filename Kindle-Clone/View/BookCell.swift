@@ -10,7 +10,7 @@ import UIKit
 
 class BookCell:UITableViewCell{
     
-    let bookImage:UIImageView  = {
+    private var bookImage:UIImageView  = {
        let image = UIImageView()
         image.backgroundColor = .red
         image.image = #imageLiteral(resourceName: "Profile")
@@ -22,7 +22,7 @@ class BookCell:UITableViewCell{
         return  image
     }()
     
-    let bookTitleLbl:UILabel = {
+    private var bookTitleLbl:UILabel = {
        let bookLbl = UILabel()
         bookLbl.translatesAutoresizingMaskIntoConstraints = false
         bookLbl.text = "The Dream"
@@ -30,7 +30,7 @@ class BookCell:UITableViewCell{
         bookLbl.textColor = .white
         return bookLbl
     }()
-    let bookAuthor:UILabel = {
+    private var bookAuthor:UILabel = {
         let bookLbl = UILabel()
         bookLbl.translatesAutoresizingMaskIntoConstraints = false
         bookLbl.font = UIFont(name: "Avenir", size: 16)
@@ -51,8 +51,27 @@ class BookCell:UITableViewCell{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    func setupCell(book:Book){
+        self.bookTitleLbl.text = book.title
+        self.bookAuthor.text = book.author
+        if  book.imageName != "" {
+            let url = URL(string: book.imageName)
+            URLSession.shared.dataTask(with: url!) { (data, respons, error) in
+                if error != nil {
+                    print(error?.localizedDescription as Any)
+                }else{
+                    guard let imageData = data else{return}
+                    let image = UIImage(data: imageData)
+                    print(imageData)
+                    DispatchQueue.main.async {
+                        self.bookImage.image = image
+                    }
+                }
+            }.resume()
+        }
+        
+    }
     //AutoLayout for cell
-    
     func setupAutoLayoutConstraint(){
         //BookImage Constraint
         if #available(iOS 11.0, *) {

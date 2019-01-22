@@ -13,7 +13,7 @@ class HomeVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //tabelview
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: BOOKS_CELL)
+        tableView.register(BookCell.self, forCellReuseIdentifier: BOOKS_CELL)
         tableView.backgroundColor = .green
         setupNavigationBar()
     }
@@ -43,9 +43,12 @@ class HomeVC: UITableViewController {
         return 4
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BOOKS_CELL, for: indexPath)
-        cell.textLabel?.text = "Hello"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BOOKS_CELL, for: indexPath) as? BookCell else {  fatalError()}
+        
         return cell
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
 
 }

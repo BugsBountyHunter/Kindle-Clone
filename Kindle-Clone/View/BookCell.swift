@@ -55,6 +55,7 @@ class BookCell:UITableViewCell{
         self.bookTitleLbl.text = book.title
         self.bookAuthor.text = book.author
         if  book.imageName != "" {
+            bookImage.image = nil
             let url = URL(string: book.imageName)
             URLSession.shared.dataTask(with: url!) { (data, respons, error) in
                 if error != nil {
@@ -69,7 +70,6 @@ class BookCell:UITableViewCell{
                 }
             }.resume()
         }
-        
     }
     //AutoLayout for cell
     func setupAutoLayoutConstraint(){

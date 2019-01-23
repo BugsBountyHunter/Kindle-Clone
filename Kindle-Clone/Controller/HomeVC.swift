@@ -15,7 +15,8 @@ class HomeVC: UITableViewController {
         DataService.instanc.getData()
         //tabelview
         tableView.register(BookCell.self, forCellReuseIdentifier: BOOKS_CELL)
-        tableView.backgroundColor = .green
+        tableView.backgroundColor = UIColor.lightGray
+        tableView.tableFooterView = UIView()
         setupNavigationBar()
     }
     //MARK:- Setup NAvigationController
@@ -51,6 +52,62 @@ class HomeVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+
+        let segmentController:UISegmentedControl = {
+          let seg = UISegmentedControl(items: ["Cloude","Device"])
+          seg.translatesAutoresizingMaskIntoConstraints = false
+          seg.tintColor = .white
+          seg.selectedSegmentIndex = 0
+          return seg
+        }()
+        footerView.addSubview(segmentController)
+        NSLayoutConstraint.activate([
+            segmentController.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
+            segmentController.centerYAnchor.constraint(equalTo: footerView.centerYAnchor),
+            segmentController.heightAnchor.constraint(equalToConstant: 30),
+            segmentController.widthAnchor.constraint(equalToConstant: 200)
+            ])
+        let gridBtn:UIButton = {
+           let btn = UIButton(type: .system)
+            btn.setImage(#imageLiteral(resourceName: "list").withRenderingMode(.alwaysOriginal), for: .normal)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+           return btn
+        }()
+        footerView.addSubview(gridBtn)
+        NSLayoutConstraint.activate([
+            gridBtn.leftAnchor.constraint(equalTo: footerView.leftAnchor, constant: 10),
+            gridBtn.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 10),
+            gridBtn.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -10),
+            gridBtn.widthAnchor.constraint(equalToConstant: 30)
+            ])
+        let reveresBtn:UIButton = {
+            let btn = UIButton(type: .system)
+            btn.setImage(#imageLiteral(resourceName: "reverse").withRenderingMode(.alwaysOriginal), for: .normal)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            
+            return btn
+        }()
+        footerView.addSubview(reveresBtn)
+        NSLayoutConstraint.activate([
+            reveresBtn.rightAnchor.constraint(equalTo: footerView.rightAnchor, constant: -10),
+            reveresBtn.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 10),
+            reveresBtn.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -10),
+            reveresBtn.widthAnchor.constraint(equalToConstant: 30)
+            ])
+//        NSLayoutConstraint.activate([
+//            footerView.heightAnchor.constraint(equalToConstant: 50),
+//            footerView.leftAnchor.constraint(equalTo: tableView.leftAnchor, constant: 0),
+//            footerView.rightAnchor.constraint(equalTo: tableView.rightAnchor, constant: 0),
+//            footerView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0)
+//            ])
+        return footerView
+    }
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
     }
 
 }
